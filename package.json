@@ -1,0 +1,79 @@
+{
+  "name": "niko-gateway",
+  "version": "1.0.0",
+  "description": "A gateway service by node.js",
+  "private": true,
+  "egg": {
+    "typescript": true,
+    "declarations": true
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-niko-gateway",
+    "niko": "egg-bin dev",
+    "stop": "egg-scripts stop --title=egg-server-niko-gateway",
+    "dev": "egg-bin dev --workers=2",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "eslint . --ext .ts",
+    "clean": "ets clean"
+  },
+  "dependencies": {
+    "@hackycy/egg-typeorm": "^0.5.1",
+    "@types/lodash": "^4.14.176",
+    "@types/shelljs": "^0.8.9",
+    "@types/uuid": "^8.3.1",
+    "@types/xml2js": "^0.4.9",
+    "egg": "^2.32.0",
+    "egg-cors": "^2.2.3",
+    "egg-dynamic-email": "^1.0.2",
+    "egg-jwt": "^3.1.7",
+    "egg-redis": "^2.4.0",
+    "egg-scripts": "^2.6.0",
+    "egg-validate": "^2.0.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "shelljs": "^0.8.4",
+    "typeorm": "^0.2.38",
+    "uuid": "^8.3.2",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "@types/supertest": "^2.0.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.16.0",
+    "eslint": "^6.7.2",
+    "eslint-config-egg": "^9.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.4.1",
+    "prettier-eslint": "^13.0.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "ci": {
+    "version": "14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/legends-killer/niko-gateway.git"
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "author": "legends-killer",
+  "license": "MIT"
+}
