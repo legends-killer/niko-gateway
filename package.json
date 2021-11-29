@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-niko-gateway",
-    "niko": "egg-bin dev",
+    "niko": "egg-scripts start --daemon --title=egg-server-niko-gateway --workers=1",
     "stop": "egg-scripts stop --title=egg-server-niko-gateway",
     "dev": "egg-bin dev --workers=2",
     "debug": "egg-bin debug",
