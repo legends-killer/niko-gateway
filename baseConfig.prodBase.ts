@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-21 19:38:47
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 16:42:19
+ * @LastEditTime: 2021-11-29 23:30:27
  * @Description: 基础配置模板，不要修改！！！用于初始化数据库。应用启动后可前往控制台修改。
  */
 import { ISystemSettingEmail, ISystemSettingErrorReport, ISystemSettingSchedule, ISystemSettingAccessKey } from './typings/types'
@@ -78,7 +78,3 @@ export const accessKey: ISystemSettingAccessKey = {
   enable: true,
   key: 'xxxxxx', // for inner API access
 }
-
-// curl ssl check
-// https://stackoverflow.com/questions/19023979/how-turn-off-curls-verification-of-the-certificate-in-nodejs
-export const curlSslCheck = false

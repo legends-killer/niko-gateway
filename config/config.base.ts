@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-26 21:05:53
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 16:07:00
+ * @LastEditTime: 2021-11-29 23:31:21
  * @Description: 基本配置，复制到相应环境的配置文件中修改使用
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
@@ -36,6 +36,9 @@ export default (appInfo: EggAppInfo) => {
     id: '', // client_id
     secret: '', // client_secret
   }
+  // nodejs curl ssl
+  // https://stackoverflow.com/questions/19023979/how-turn-off-curls-verification-of-the-certificate-in-nodejs
+  config.curlSslCheck = false
 
   // db
   config.dbTunnel = {

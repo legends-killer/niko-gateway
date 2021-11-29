@@ -2,12 +2,11 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:25:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 15:59:59
+ * @LastEditTime: 2021-11-29 23:30:41
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
 import * as path from 'path'
-import { curlSslCheck } from '../baseConfig.prodBase'
 
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>
@@ -49,8 +48,6 @@ export default (appInfo: EggAppInfo) => {
   config.logger = {
     outputJSON: true,
   }
-
-  config.curlSslCheck = curlSslCheck
 
   // the return config will combines to EggAppConfig
   return {
