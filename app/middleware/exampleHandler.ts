@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-12-01 15:11:08
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-01 17:43:27
+ * @LastEditTime: 2021-12-01 18:05:42
  * @Description:
  */
 import { Context } from 'egg'
@@ -28,7 +28,6 @@ export default () => {
     if (method === 'DELETE') {
       ctx.throw(400, '这只是个example捏，不能删除捏', { code: 40000 })
     }
-    console.log(url, method)
     await next()
   }
 }
