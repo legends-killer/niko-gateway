@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-26 18:32:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 15:49:05
+ * @LastEditTime: 2021-12-01 01:00:35
  * @Description: 应用初始化，写入db初始值等操作，
  */
 import { Context } from 'egg'
@@ -39,9 +39,9 @@ module.exports = () => {
           ]),
           sys.save([
             { key: SystemSettingKey.errorEmail, value: email, comment: 'email report' },
-            { key: SystemSettingKey.systemErrorReport, value: systemErrorReport, comment: 'system error report' },
             { key: SystemSettingKey.accessKey, value: accessKey, comment: 'inner API access key' },
             { key: SystemSettingKey.scheduleInterval, value: scheduleInterval, comment: 'schedule interval' },
+            { key: SystemSettingKey.systemErrorReport, value: systemErrorReport, comment: 'system error report' },
             { key: SystemSettingKey.proxyErrorReport, value: proxyErrorReport, comment: 'proxy error report' },
             { key: SystemSettingKey.abTestErrorReport, value: abTestErrorReport, comment: 'ab test error report' },
           ]),
