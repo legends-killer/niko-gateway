@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-17 19:23:13
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 04:36:07
+ * @LastEditTime: 2021-11-30 20:45:01
  * @Description:
  */
 import { Service } from 'egg'
@@ -26,10 +26,10 @@ export default class SystemService extends Service {
     return (await ctx.service.redis.getArr('system', SystemInfoRedisKey.history)) as ISystemInfo[]
   }
 
-  async getSystemConfig(key: SystemSettingKey) {
+  async getSystemConfig(key?: SystemSettingKey) {
     const { ctx } = this
     const db = ctx.repo.System
-    const systemSetting = await db.findOne({ key })
+    const systemSetting = key ? await db.find({ key }) : await db.find({})
     return systemSetting
   }
 

@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:25:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-27 16:18:54
+ * @LastEditTime: 2021-11-30 20:36:06
  * @Description: Router Definition
  * 👀编写gateway系统接口时不要以/api开头
  * 🐱🐱🐱
@@ -40,7 +40,7 @@ export default (app: Application) => {
   router.post('/system/reload', controller.system.reloadWorker)
   router.post('/system/log', controller.log.post)
   router.get('/system/config', controller.system.getSystemConfig)
-  router.post('/system/config', controller.system.updateSystemConfig)
+  router.put('/system/config', controller.system.updateSystemConfig)
 
   /**
    * admin config

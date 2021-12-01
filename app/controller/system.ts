@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-17 19:22:00
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-28 23:57:01
+ * @LastEditTime: 2021-11-30 22:26:02
  * @Description:
  */
 import { Controller } from 'egg'
@@ -10,7 +10,7 @@ import { IBody, ScheduleName, SystemSettingKey, SystemSettingOption } from '../.
 import { v4 as uuidv4 } from 'uuid'
 
 const settingKeyRule = {
-  setting: { type: 'enum', values: Object.values(SystemSettingKey) },
+  key: { type: 'enum', values: Object.values(SystemSettingKey) },
 }
 
 const settingValueRule = {
@@ -154,7 +154,7 @@ export default class SystemController extends Controller {
     const res = await this.service.system.getSystemConfig(key as any)
 
     // if (res?.value.key) res.value.key = '******' // innerAPI key 不显示
-    body.data = { ...res }
+    body.data = { config: res }
     body.code = 200
     body.error = 0
     body.msg = 'success'
@@ -166,13 +166,13 @@ export default class SystemController extends Controller {
     const body = {} as IBody
     const newRule = ctx.request.body
     ctx.validate(settingKeyRule, newRule)
-    ctx.validate(settingValueRule[newRule.setting], newRule.value)
+    ctx.validate(settingValueRule[newRule.key], newRule.value)
     // 随机生成一个accessKey
-    if (newRule.setting === SystemSettingKey.accessKey) {
+    if (newRule.key === SystemSettingKey.accessKey) {
       newRule.value.key = uuidv4()
     }
 
-    const res = await this.service.system.updateSystemConfig(newRule.setting, newRule.value)
+    const res = await this.service.system.updateSystemConfig(newRule.key, newRule.value)
     this.app.messenger.sendToApp(SystemSettingOption.SYNC, {}) // IPC 通知同步配置
 
     body.data = { ...res }
