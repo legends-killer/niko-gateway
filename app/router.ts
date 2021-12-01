@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:25:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-30 20:36:06
+ * @LastEditTime: 2021-12-01 17:25:09
  * @Description: Router Definition
  * 👀编写gateway系统接口时不要以/api开头
  * 🐱🐱🐱
@@ -19,7 +19,7 @@ export default (app: Application) => {
    * for users
    */
   router.post('/auth', controller.auth.post)
-  router.post('/refreshToken', controller.auth.refreshToken)
+  // router.post('/refreshToken', controller.auth.refreshToken)
   router.get('/info', controller.info.index)
   router.get('/info/log', controller.info.log)
   router.get('/info/biz', controller.info.biz)

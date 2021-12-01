@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:25:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 23:30:41
+ * @LastEditTime: 2021-12-01 17:25:55
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
@@ -16,8 +16,20 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1634561314642_2349'
 
   // add your egg config in here
-  config.middleware = ['errorHandler', 'innerHandler', 'authHandler', 'adminHandler', 'proxyHandler', 'bizHandler', 'abHandler']
+  config.middleware = [
+    'errorHandler',
+    'exampleHandler',
+    'innerHandler',
+    'authHandler',
+    'adminHandler',
+    'proxyHandler',
+    'bizHandler',
+    'abHandler',
+  ]
   config.errorHandler = {
+    match: ['/'],
+  }
+  config.exampleHandler = {
     match: ['/'],
   }
   config.innerHandler = {
