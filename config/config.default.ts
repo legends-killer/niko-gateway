@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:25:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-01 17:25:55
+ * @LastEditTime: 2021-12-01 23:20:55
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
