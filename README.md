@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-10-29 16:35:46
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-01 21:02:36
+ * @LastEditTime: 2021-12-01 21:14:54
  * @Description:
 -->
 
@@ -18,6 +18,10 @@ A lightweight, easy to use, and open source, Gateway by node.js.
 
 ---
 
+## Example
+
+[Here](https://app.niko-gateway.top) is an example of Niko-Gateway based on GitHub oAuth App.
+
 ## Quick Start
 
 ### Requirement
@@ -26,6 +30,10 @@ A lightweight, easy to use, and open source, Gateway by node.js.
 - Typescript 4.5+
 - MySQL5.7+
 - Redis
+- An oAuth service
+  - [GitHub oAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps)
+  - [Google oAuth](https://developers.google.com/identity/protocols/OAuth2)
+  - etc.
 
 ### Clone the repository
 
@@ -81,6 +89,10 @@ yarn stop // stop the server after initializing the database
   ```
   note: if you havn't initialized the database in your production environment, please run `yarn niko` first.
 
-### Issue
+## Work with Niko-Gateway FE
+
+You can implement your own front-end by using the repository [Niko-Gateway FE](https://github.com/legends-killer/niko-gateway-fe)
+
+## Issue
 
 You can report issues [here](https://github.com/legends-killer/niko-gateway/issues)
