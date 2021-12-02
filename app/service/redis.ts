@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-10-29 16:35:46
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-28 02:53:44
+ * @LastEditTime: 2021-12-02 15:50:38
  * @Description:
  */
 import { Service, Singleton } from 'egg'
@@ -157,23 +157,5 @@ export default class RedisService extends Service {
   async flushDb(db: IRedisDbName) {
     const { redis } = this
     return await redis.get(db).flushdb()
-  }
-
-  /**
-   * 由于插件问题，目标数据库只能传index
-   * @deprecated
-   * @param db redis db name
-   * @param dest redis db index
-   * @param keys string array of keys to be copied
-   * @return results
-   */
-  async moveDb(db: IRedisDbName, dest: string, keys: string[]) {
-    const { redis } = this
-    const r = redis.get(db)
-    return Promise.all(
-      keys.map((key) => {
-        return r.move(key, dest)
-      })
-    )
   }
 }

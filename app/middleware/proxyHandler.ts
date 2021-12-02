@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:17:51
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-28 23:25:51
+ * @LastEditTime: 2021-12-02 16:02:04
  * @Description:
  */
 import { Context } from 'egg'
@@ -40,7 +40,7 @@ export default () => {
       ctx.getLogger('proxyLogger').info('try proxy', [ctx.request.path, ctx.request.method, config.allowGroup])
       ctx.app.config.system.proxyInfo.proxy += 1
 
-      config.dest + '?' + ctx.request.querystring
+      config.dest += '?' + ctx.request.querystring
       ctx.proxy = config
       await next()
       const state = ctx.proxyStatus || -1
