@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-10-29 16:35:46
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-30 00:26:47
+ * @LastEditTime: 2021-12-02 10:56:36
  * @Description:
  */
 import { Service } from 'egg'
@@ -48,7 +48,7 @@ export default class AuthService extends Service {
       // save to db
       const res = await db.save(newUser)
       // add to user group
-      await this.service.userGroupMap.create([{ userId: res.id, groupId: 2 } as any])
+      await this.service.userGroupMap.create([{ userId: res.id, groupId: 2 } as any, { userId: res.id, groupId: 1 } as any])
       // save to cache, add default group
       await this.service.user.singleCache(res, false)
     }
