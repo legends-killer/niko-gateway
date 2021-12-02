@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-10-29 16:35:46
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-01 21:14:54
+ * @LastEditTime: 2021-12-02 12:24:38
  * @Description:
 -->
 
@@ -14,9 +14,52 @@
 
 </div>
 
-A lightweight, easy to use, and open source, Gateway by node.js.
+- A lightweight, easy to use, and open source, gateway by node.js.
+
+- English | [中文](./README-SC.md)
 
 ---
+
+## Features
+
+- Basic
+  - ✅ oAuth2.0
+  - ✅ JWT token
+  - ✅ User, user group, permission management
+  - ✅ Configurable schedule work
+  - ✅ Easy to use log search and analysis system
+  - ✅ Hot reload for production environment
+  - ✅ System status monitor
+    - ✅ API monitor (biz, service)
+    - ✅ Cache monitor
+    - ✅ Threshold alarm
+- Gateway Admin
+  - ✅ Configurable microservice, HTTP RESTful API
+    - ✅ Microservice, API router management
+    - ✅ HTTP proxy
+    - ✅ Configurable HTTP request header
+    - ✅ Traffic monitor
+  - ✅ Configurable AB test
+    - ✅ Traffic shifting ratio, time, and strategy
+    - ✅ AB Test monitor
+  - ✅ Configurable inner service API
+- User
+  - ✅ Auth logs
+  - ✅ Easy to access apps authorized by gateway
+
+## What's Next
+
+- 🧑‍💻 Unit test
+- 🧑‍💻 Docker Support
+- 🧑‍💻 Enhance accessToken management (for security)
+- 🧑‍💻 Enhance system monitor
+  - Request response time
+  - Traffic visualization
+- 🧑‍💻 Enhance gateway
+  - protocol conversion
+    - HTTP to gRPC
+    - HTTP to Dubbo
+  - SLB (may be)
 
 ## Example
 
@@ -96,3 +139,7 @@ You can implement your own front-end by using the repository [Niko-Gateway FE](h
 ## Issue
 
 You can report issues [here](https://github.com/legends-killer/niko-gateway/issues)
+
+## License
+
+[MIT](./LICENSE.md)
