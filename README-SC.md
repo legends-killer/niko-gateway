@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-12-02 11:18:03
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-02 12:24:28
+ * @LastEditTime: 2021-12-02 17:53:29
  * @Description:
 -->
 
@@ -52,6 +52,8 @@
 ## 简单样例
 
 [这里](https://app.niko-gateway.top) 是一个简单的示例，基于 Niko-Gateway + GitHub oAuth 认证实现的 API 网关。
+
+**[食用方法](./EXAMPLE.md)**
 
 ## 快速开始
 
@@ -125,6 +127,10 @@ yarn stop // 由于node.js的特性，和我不想写初始化脚本，实际上
   ```
 
   注意： 生产环境同样需初始化数据库！
+
+### 生产环境配置
+
+请参考 **[食用方法](./EXAMPLE.md)**
 
 ## 使用 Niko-Gateway FE 来部署前端
 

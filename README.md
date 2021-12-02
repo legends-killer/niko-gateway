@@ -2,11 +2,17 @@
  * @Author: legends-killer
  * @Date: 2021-10-29 16:35:46
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-02 12:24:38
+ * @LastEditTime: 2021-12-02 17:52:07
  * @Description:
 -->
 
 # Niko-Gateway
+
+![example workflow](https://github.com/legends-killer/niko-gateway/actions/workflows/nodejs.yml/badge.svg)
+[![codebeat badge](https://codebeat.co/badges/ca1d584f-00ee-48d5-9372-ff1200d41fe7)](https://codebeat.co/projects/github-com-legends-killer-niko-gateway-main)
+[![GitHub license](https://img.shields.io/github/license/legends-killer/niko-gateway)](https://github.com/legends-killer/niko-gateway/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/legends-killer/niko-gateway)](https://github.com/legends-killer/niko-gateway/issues)
+[![GitHub stars](https://img.shields.io/github/stars/legends-killer/niko-gateway)](https://github.com/legends-killer/niko-gateway/stargazers)
 
 <div align="center">
 
@@ -15,7 +21,6 @@
 </div>
 
 - A lightweight, easy to use, and open source, gateway by node.js.
-
 - English | [中文](./README-SC.md)
 
 ---
@@ -64,6 +69,7 @@
 ## Example
 
 [Here](https://app.niko-gateway.top) is an example of Niko-Gateway based on GitHub oAuth App.
+**[Example Instructions](./EXAMPLE.md)**
 
 ## Quick Start
 
