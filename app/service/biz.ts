@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-12 18:34:17
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-26 16:14:16
+ * @LastEditTime: 2021-12-02 15:50:26
  * @Description:
  */
 import { Service } from 'egg'
@@ -104,20 +104,6 @@ export default class BizService extends Service {
     try {
       const bizKV = await this.loadBizKv()
       this.service.redis.mset('biz', bizKV)
-    } catch (error) {
-      err = error
-    }
-    return Object.keys(err).length ? (err as Error) : 0
-  }
-
-  /**
-   * @deprecated
-   */
-  async bizCacheToBack() {
-    let err: any = {}
-    try {
-      const keys = await this.service.redis.getAllKey('biz')
-      await this.service.redis.moveDb('biz', '5', keys)
     } catch (error) {
       err = error
     }

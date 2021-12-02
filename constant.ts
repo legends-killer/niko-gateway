@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-27 17:41:57
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 03:57:46
+ * @LastEditTime: 2021-12-02 15:49:16
  * @Description:
  */
 import { ISystemInfo, ISystemSettingErrorReport, ErrorEmailType } from './typings/types'
@@ -62,23 +62,25 @@ export const systemErrorReportEmailTemplate = (
 </html>
 `
 
-// `
-// <html>
-// <h2>
-//   This is an error report from Niko-Gateway.
-// </h2>
-// <p>Nya~</p>
-// <p>
-//   <strong>Niko has found that your ${type} error or warn increased to a threshold</strong>
-// </p>
-// <p>
-//   <strong>For the last ${config.timeThreshold} mins</strong>
-// </p>
-// <p>
-//   <strong>${type} Warn:</strong> ${warn}
-// </p>
-// <p>
-//   <strong>${type} Error:</strong> ${error}
-// </p>
-// </html>
-// `
+export const TransNumberArray = {
+  from: (value: string) => {
+    if (value === undefined) return ''
+    return value.split(',').map((r) => {
+      return Number(r)
+    })
+  },
+  to: (value: Array<string | number> | undefined) => {
+    if (value === undefined) return ''
+    return value.toString()
+  },
+}
+
+export const TransJson = {
+  from(val: string) {
+    return JSON.parse(val)
+  },
+  to(val: { [index: string]: string } | undefined) {
+    if (!val) return '{}'
+    return JSON.stringify(val)
+  },
+}

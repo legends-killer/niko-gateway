@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:25:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-01 17:25:09
+ * @LastEditTime: 2021-12-02 17:34:27
  * @Description: Router Definition
  * 👀编写gateway系统接口时不要以/api开头
  * 🐱🐱🐱
@@ -24,6 +24,7 @@ export default (app: Application) => {
   router.get('/info/log', controller.info.log)
   router.get('/info/biz', controller.info.biz)
   router.get('/info/group', controller.info.group)
+  router.get('/info/checkToken', controller.info.checkToken)
 
   // for admin
   /**

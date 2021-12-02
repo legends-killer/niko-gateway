@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-26 16:05:26
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 17:08:31
+ * @LastEditTime: 2021-12-02 15:50:50
  * @Description:
  */
 import { Service } from 'egg'
@@ -54,20 +54,6 @@ export default class UserService extends Service {
           return this.service.redis.set('user', u.accessToken, u)
         })
       )
-    } catch (error) {
-      err = error
-    }
-    return Object.keys(err).length ? (err as Error) : 0
-  }
-
-  /**
-   * @deprecated
-   */
-  async cacheToBack() {
-    let err: any = {}
-    try {
-      const keys = await this.service.redis.getAllKey('user')
-      await this.service.redis.moveDb('user', '3', keys)
     } catch (error) {
       err = error
     }

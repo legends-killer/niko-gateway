@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-26 21:05:53
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-29 23:31:21
+ * @LastEditTime: 2021-12-01 20:59:10
  * @Description: 基本配置，复制到相应环境的配置文件中修改使用
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
@@ -12,6 +12,12 @@ export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>
 
   // egg base
+  config.cluster = {
+    listen: {
+      port: 7002,
+      hostname: '0.0.0.0',
+    },
+  }
   config.security = {
     // 安全相关，详见 https://eggjs.org/zh-cn/core/security.html
     csrf: {

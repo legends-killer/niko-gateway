@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:25:22
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-01 23:20:55
+ * @LastEditTime: 2021-12-02 17:34:29
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
@@ -36,7 +36,7 @@ export default (appInfo: EggAppInfo) => {
     match: ['/inner'],
   }
   config.authHandler = {
-    ignore: ['/refreshToken', '/auth', '/inner'],
+    ignore: ['/refreshToken', '/auth', '/inner', '/info/checkToken'],
   }
   config.adminHandler = {
     ignore: [/^\/api.*$/, '/refreshToken', '/auth', '/info', '/inner'],

@@ -2,34 +2,12 @@
  * @Author: legends-killer
  * @Date: 2021-11-17 22:35:55
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-27 17:22:25
+ * @LastEditTime: 2021-12-02 15:49:01
  * @Description:
  */
 import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, Index } from 'typeorm'
 import { RequestMethod } from '../../typings/types'
-
-const TransNumberArray = {
-  from: (value: string) => {
-    if (value === undefined) return ''
-    return value.split(',').map((r) => {
-      return Number(r)
-    })
-  },
-  to: (value: Array<string | number> | undefined) => {
-    if (value === undefined) return ''
-    return value.toString()
-  },
-}
-
-const TransJson = {
-  from(val: string) {
-    return JSON.parse(val)
-  },
-  to(val: { [index: string]: string } | undefined) {
-    if (!val) return '{}'
-    return JSON.stringify(val)
-  },
-}
+import { TransNumberArray, TransJson } from '../../constant'
 
 @Entity()
 @Index(['origin', 'method', 'switch'], { unique: true })

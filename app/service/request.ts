@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-26 16:05:26
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-26 16:20:02
+ * @LastEditTime: 2021-12-02 15:50:43
  * @Description:
  */
 import { Service } from 'egg'
@@ -137,20 +137,6 @@ export default class RequsetService extends Service {
     try {
       const apiKV = await this.loadApiKv()
       await this.service.redis.mset('api', apiKV)
-    } catch (error) {
-      err = error
-    }
-    return Object.keys(err).length ? (err as Error) : 0
-  }
-
-  /**
-   * @deprecated
-   */
-  async apiCacheToBack() {
-    let err: any = {}
-    try {
-      const keys = await this.service.redis.getAllKey('api')
-      await this.service.redis.moveDb('api', '1', keys)
     } catch (error) {
       err = error
     }
