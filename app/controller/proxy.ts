@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-05 15:28:13
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-28 22:33:02
+ * @LastEditTime: 2021-12-02 16:04:25
  * @Description:
  */
 import { Controller } from 'egg'
@@ -14,7 +14,7 @@ class ProxyController extends Controller {
       abTest = ctx.abTest
     if (abTest?.goto) {
       config.server = abTest.server
-      config.dest = abTest.dest
+      config.dest = abTest.dest + '?' + ctx.querystring
     }
 
     const result: any = await this.service.proxy.request(config, 'get')
@@ -28,7 +28,7 @@ class ProxyController extends Controller {
       abTest = ctx.abTest
     if (abTest?.goto) {
       config.server = abTest.server
-      config.dest = abTest.dest
+      config.dest = abTest.dest + '?' + ctx.querystring
     }
 
     const result: any = await this.service.proxy.request(config, 'post')
@@ -42,7 +42,7 @@ class ProxyController extends Controller {
       abTest = ctx.abTest
     if (abTest?.goto) {
       config.server = abTest.server
-      config.dest = abTest.dest
+      config.dest = abTest.dest + '?' + ctx.querystring
     }
 
     const result: any = await this.service.proxy.request(config, 'put')
@@ -56,31 +56,10 @@ class ProxyController extends Controller {
       abTest = ctx.abTest
     if (abTest?.goto) {
       config.server = abTest.server
-      config.dest = abTest.dest
+      config.dest = abTest.dest + '?' + ctx.querystring
     }
 
     const result: any = await this.service.proxy.request(config, 'delete')
-    ctx.set(result.headers)
-    ctx.proxyStatus = result.status
-    ctx.body = result.data
-  }
-  async download() {
-    const { req } = this.ctx.request
-    const { ctx } = this
-    const headers = req.headers,
-      method: any = req.method,
-      config = ctx.proxy!,
-      abTest = ctx.abTest
-    if (abTest?.goto) {
-      config.server = abTest.server
-      config.dest = abTest.dest
-    }
-
-    const result: any = await ctx.curl(config.server + config.dest, {
-      method,
-      headers,
-      timeout: 25000,
-    })
     ctx.set(result.headers)
     ctx.proxyStatus = result.status
     ctx.body = result.data
