@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-11 22:41:51
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-11-26 16:16:27
+ * @LastEditTime: 2021-12-02 15:04:55
  * @Description:
  */
 import { Controller } from 'egg'
@@ -103,6 +103,23 @@ export default class InfoController extends Controller {
     })
 
     body.data = { groupMap }
+    body.code = 200
+    body.error = 0
+    body.msg = 'success'
+    ctx.body = body
+  }
+
+  /**
+   * 检查token有效性
+   * 不走中间件
+   */
+  async checkToken() {
+    const { ctx } = this
+    const body = {} as IBody
+
+    const res = await this.service.info.checkToken(ctx.header.authorization?.toString())
+
+    body.data = { ok: !!res }
     body.code = 200
     body.error = 0
     body.msg = 'success'
