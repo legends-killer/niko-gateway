@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-10-29 16:35:46
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-09 01:27:37
+ * @LastEditTime: 2021-12-09 02:02:53
  * @Description:
 -->
 
@@ -69,7 +69,12 @@
 ## Example
 
 [Here](https://app.niko-gateway.top) is an example of Niko-Gateway based on GitHub oAuth App.
+
 **[Example Instructions](./EXAMPLE.md)**
+
+## Work with Niko-Gateway FE
+
+You can implement your own front-end by using the repository [Niko-Gateway FE](https://github.com/legends-killer/niko-gateway-fe)
 
 ## Quick Start
 
@@ -138,9 +143,48 @@ yarn stop // stop the server after initializing the database
   ```
   note: if you havn't initialized the database in your production environment, please run `yarn niko` first.
 
-## Work with Niko-Gateway FE
+## Use Dcoker And Docker-compose
 
-You can implement your own front-end by using the repository [Niko-Gateway FE](https://github.com/legends-killer/niko-gateway-fe)
+note: It's suggested to use dcoker and docker-compose together.
+
+### Customize Niko-Gateway Dcoker Image
+
+- update `./Dockerfile`
+  - server port
+  - log directory
+  - etc.
+
+### Customize Docker-compose
+
+- update `./docker-compose.yml`
+  - mysql & redis configs
+  - persistent volumes
+  - niko-gateway log directory & port
+  - http proxy when building
+  - etc.
+
+### Config Niko-Gateway
+
+See [Production Build](#For-Production)
+
+### Compile TS to JS (important)
+
+- `yarn ci`
+
+### Build & Run
+
+- Build the image:
+  ```bash
+  docker-compose build
+  ```
+- Run the images in order:
+  ```bash
+  docker-compose up -d
+  ```
+
+### Clean up JS Files
+
+- `yarn clean`
 
 ## Issue
 

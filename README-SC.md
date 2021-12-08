@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-12-02 11:18:03
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-09 01:27:55
+ * @LastEditTime: 2021-12-09 02:03:18
  * @Description:
 -->
 
@@ -54,6 +54,10 @@
 [这里](https://app.niko-gateway.top) 是一个简单的示例，基于 Niko-Gateway + GitHub oAuth 认证实现的 API 网关。
 
 **[食用方法](./EXAMPLE.md)**
+
+## 使用 Niko-Gateway FE 来部署前端
+
+你可以通过 [Niko-Gateway FE](https://github.com/legends-killer/niko-gateway-fe) 来部署 Niko-Gateway 的前端
 
 ## 快速开始
 
@@ -132,9 +136,48 @@ yarn stop // 由于node.js的特性，和我不想写初始化脚本，实际上
 
 请参考 **[食用方法](./EXAMPLE.md)**
 
-## 使用 Niko-Gateway FE 来部署前端
+## 使用 Docker 部署
 
-你可以通过 [Niko-Gateway FE](https://github.com/legends-killer/niko-gateway-fe) 来部署 Niko-Gateway 的前端
+注意 ⚠️: 建议使用 docker-compose，因为需要做一些预处理。仅将 gateway 本体构建 Docker Image 部署可能导致数据库初始化问题，进而导致无法启动。
+
+### 定制 Niko-Gateway 镜像
+
+- 根据需要修改 `./Dockerfile`
+  - 外部端口地址
+  - 日志目录
+  - ···
+
+### Customize Docker-compose
+
+- 根据需要修改 `./docker-compose.yml` 需要与 `./Dockerfile` 中的配置保持一致
+  - mysql & redis 的配置文件
+  - 持久化卷的挂在位置
+  - niko-gateway 日志目录 外部端口等
+  - 镜像构建时的 http 代理
+  - ···
+
+### 修改 Niko-Gateway 配置
+
+参见 [生产环境部署](#生产环境部署)
+
+### 将 TS 构建为 JS
+
+- `yarn ci`
+
+### 构建 Docker 镜像 & 启动服务
+
+- 构建镜像:
+  ```bash
+  docker-compose build
+  ```
+- 依次启动服务:
+  ```bash
+  docker-compose up -d
+  ```
+
+### 清除 JS 构建产物
+
+- `yarn clean`
 
 ## Issue
 
