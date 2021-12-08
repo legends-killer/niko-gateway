@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-10-29 16:35:46
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-02 17:52:07
+ * @LastEditTime: 2021-12-09 01:27:37
  * @Description:
 -->
 
@@ -55,7 +55,7 @@
 ## What's Next
 
 - 🧑‍💻 Unit test
-- 🧑‍💻 Docker Support
+- ✅ Docker & docker-compose Support
 - 🧑‍💻 Enhance accessToken management (for security)
 - 🧑‍💻 Enhance system monitor
   - Request response time

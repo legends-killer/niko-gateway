@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-12-02 11:18:03
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-02 17:53:29
+ * @LastEditTime: 2021-12-09 01:27:55
  * @Description:
 -->
 
@@ -38,7 +38,7 @@
 ## What's Next
 
 - 🧑‍💻 测试用例补全
-- 🧑‍💻 支持 Docker 部署
+- ✅ 支持 Docker, docker-compose 部署
 - 🧑‍💻 增强 accessToken 管理、安全性检查
 - 🧑‍💻 更强的系统监控
   - 请求响应时间

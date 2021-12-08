@@ -2,7 +2,7 @@
  * @Author: legends-killer
  * @Date: 2021-11-26 21:05:53
  * @LastEditors: legends-killer
- * @LastEditTime: 2021-12-01 20:59:10
+ * @LastEditTime: 2021-12-09 01:22:46
  * @Description: 基本配置，复制到相应环境的配置文件中修改使用
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg'
@@ -14,7 +14,7 @@ export default (appInfo: EggAppInfo) => {
   // egg base
   config.cluster = {
     listen: {
-      port: 7002,
+      port: 7001,
       hostname: '0.0.0.0',
     },
   }
@@ -23,12 +23,12 @@ export default (appInfo: EggAppInfo) => {
     csrf: {
       enable: false,
     },
-    domainWhiteList: ['http://localhost:3000'],
+    // domainWhiteList: ['http://localhost:3000'],
   }
   config.cors = {
     // 跨域设置
     origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE',
   }
   config.jwt = {
     // jwt加密秘钥
@@ -67,6 +67,7 @@ export default (appInfo: EggAppInfo) => {
   }
 
   // redis
+  // const redisHost = 'redis' // docker-compose.yml 自定义网络链接
   const redisHost = '127.0.0.1'
   const redisPass = '123456'
   const redisPort = 6379

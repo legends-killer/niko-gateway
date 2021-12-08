@@ -1,0 +1,50 @@
+# logs configs and persisted files are stored in the ../niko-docker directory
+# eg: redis configs and persisted files are stored in the ../niko-docker/redos directory
+version: '3'
+services:
+  redis:
+    image: "redis"
+    container_name: "niko-redis"
+    networks:
+      - niko-net
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../niko-docker/redis/data:/data
+      - ../niko-docker/redis/redis.conf:/etc/redis/redis.conf
+    command: redis-server /etc/redis/redis.conf
+    restart: always
+  mysql:
+    image: mysql:5.7
+    container_name: "niko-mysql"
+    networks:
+      - niko-net
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ../niko-docker/mysql/data/:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d/
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - TZ=Asia/Shanghai
+  niko:
+    build:
+      context: .
+      # http proxy, may be useful under GFW
+      # args:
+      #   - http_proxy=http://192.168.3.46:7890
+      #   - https_proxy=http://192.168.3.46:7890
+    container_name: "niko-gateway"
+    environment:
+      WAIT_HOSTS: mysql:3306, redis:6379
+    networks:
+      - niko-net
+    restart: always
+    ports:
+      - "7001:7001"
+    volumes:
+      - ../niko-docker/niko-gateway/logs/:/logs
+networks:
+  niko-net:
+    driver: bridge
